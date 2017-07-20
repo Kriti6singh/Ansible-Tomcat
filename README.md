@@ -28,7 +28,7 @@ yum pip install ansible
 Repository Clone
 =============================
 
-http://githuben.intranet.mckinsey.com/devops-journey/devops-journey.git
+git clone https://github.com/Kriti6singh/Ansible-Tomcat.git
 
 Setup hosts
 =============
@@ -75,7 +75,4 @@ Startup Command -  systemctl stop/start/restart tomcat
 Process will be owned by tomcat user.
 
 
-Security recommendations for tomcat hardening
-================================================
 
-https://itdocs.intranet.mckinsey.com/display/CSP/Tomcat+Hardening+Recommendation
