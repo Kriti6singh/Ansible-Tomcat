@@ -1,0 +1,13 @@
+---
+# fs oracle-jdk8, tomcat8
+
+- hosts: tomcat
+  remote_user: root
+  
+  roles:
+    - {role: timestamp, time: Start} 
+    - fs
+    - oracle-jdk8
+    - tomcat8
+    - {role: timestamp, time: End} 
+

@@ -1,0 +1,10 @@
+---
+- name: Install java 8
+  yum: name={{ item }} state=present
+  with_items:
+   - java-1.8.0-openjdk.x86_64
+
+-
+  name: "Register /etc/profile"
+  template: "src=profile.d/java.sh dest=/etc/profile.d/java.sh owner=root group=root mode=0744"
+

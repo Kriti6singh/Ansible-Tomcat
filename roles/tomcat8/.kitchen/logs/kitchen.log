@@ -1,0 +1,65 @@
+I, [2017-07-19T11:45:51.904444 #15624]  INFO -- Kitchen: -----> Starting Kitchen (v1.16.0)
+E, [2017-07-19T11:45:51.916693 #15624] ERROR -- Kitchen: ------Exception-------
+E, [2017-07-19T11:45:51.916976 #15624] ERROR -- Kitchen: Class: Kitchen::ClientError
+E, [2017-07-19T11:45:51.917024 #15624] ERROR -- Kitchen: Message: Could not load the 'docker' driver from the load path. Please ensure that your driver is installed as a gem or included in your Gemfile if using Bundler.
+E, [2017-07-19T11:45:51.917066 #15624] ERROR -- Kitchen: ----------------------
+E, [2017-07-19T11:45:51.917082 #15624] ERROR -- Kitchen: ------Backtrace-------
+E, [2017-07-19T11:45:51.917096 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/driver.rb:48:in `rescue in for_plugin'
+E, [2017-07-19T11:45:51.917111 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/driver.rb:38:in `for_plugin'
+E, [2017-07-19T11:45:51.917137 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:233:in `new_driver'
+E, [2017-07-19T11:45:51.917156 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:246:in `new_instance'
+E, [2017-07-19T11:45:51.917175 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:142:in `block in build_instances'
+E, [2017-07-19T11:45:51.917189 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:141:in `map'
+E, [2017-07-19T11:45:51.917203 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:141:in `with_index'
+E, [2017-07-19T11:45:51.917280 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:141:in `build_instances'
+E, [2017-07-19T11:45:51.917313 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:117:in `instances'
+E, [2017-07-19T11:45:51.917337 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:112:in `filtered_instances'
+E, [2017-07-19T11:45:51.917361 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:142:in `parse_subcommand'
+E, [2017-07-19T11:45:51.917387 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/command/action.rb:35:in `block in call'
+E, [2017-07-19T11:45:51.917411 #15624] ERROR -- Kitchen: /usr/share/ruby/benchmark.rb:281:in `measure'
+E, [2017-07-19T11:45:51.917610 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/command/action.rb:34:in `call'
+E, [2017-07-19T11:45:51.917639 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:53:in `perform'
+E, [2017-07-19T11:45:51.917655 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:187:in `block (2 levels) in <class:CLI>'
+E, [2017-07-19T11:45:51.917670 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
+E, [2017-07-19T11:45:51.917683 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
+E, [2017-07-19T11:45:51.917697 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:334:in `invoke_task'
+E, [2017-07-19T11:45:51.917711 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/thor-0.19.1/lib/thor.rb:359:in `dispatch'
+E, [2017-07-19T11:45:51.917730 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
+E, [2017-07-19T11:45:51.917756 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/bin/kitchen:13:in `block in <top (required)>'
+E, [2017-07-19T11:45:51.917782 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/errors.rb:171:in `with_friendly_errors'
+E, [2017-07-19T11:45:51.917811 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/bin/kitchen:13:in `<top (required)>'
+E, [2017-07-19T11:45:51.917852 #15624] ERROR -- Kitchen: /usr/local/bin/kitchen:23:in `load'
+E, [2017-07-19T11:45:51.917875 #15624] ERROR -- Kitchen: /usr/local/bin/kitchen:23:in `<main>'
+E, [2017-07-19T11:45:51.917895 #15624] ERROR -- Kitchen: ----End Backtrace-----
+E, [2017-07-19T11:45:51.917918 #15624] ERROR -- Kitchen: ---Nested Exception---
+E, [2017-07-19T11:45:51.917940 #15624] ERROR -- Kitchen: Class: LoadError
+E, [2017-07-19T11:45:51.917962 #15624] ERROR -- Kitchen: Message: cannot load such file -- json/pure
+E, [2017-07-19T11:45:51.917984 #15624] ERROR -- Kitchen: ----------------------
+E, [2017-07-19T11:45:51.918006 #15624] ERROR -- Kitchen: ------Backtrace-------
+E, [2017-07-19T11:45:51.918027 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/driver.rb:48:in `rescue in for_plugin'
+E, [2017-07-19T11:45:51.918049 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/driver.rb:38:in `for_plugin'
+E, [2017-07-19T11:45:51.918111 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:233:in `new_driver'
+E, [2017-07-19T11:45:51.918140 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:246:in `new_instance'
+E, [2017-07-19T11:45:51.918163 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:142:in `block in build_instances'
+E, [2017-07-19T11:45:51.918224 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:141:in `map'
+E, [2017-07-19T11:45:51.918258 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:141:in `with_index'
+E, [2017-07-19T11:45:51.918286 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:141:in `build_instances'
+E, [2017-07-19T11:45:51.918310 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:117:in `instances'
+E, [2017-07-19T11:45:51.918334 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:112:in `filtered_instances'
+E, [2017-07-19T11:45:51.918357 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:142:in `parse_subcommand'
+E, [2017-07-19T11:45:51.918381 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/command/action.rb:35:in `block in call'
+E, [2017-07-19T11:45:51.918404 #15624] ERROR -- Kitchen: /usr/share/ruby/benchmark.rb:281:in `measure'
+E, [2017-07-19T11:45:51.918443 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/command/action.rb:34:in `call'
+E, [2017-07-19T11:45:51.918467 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:53:in `perform'
+E, [2017-07-19T11:45:51.918490 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:187:in `block (2 levels) in <class:CLI>'
+E, [2017-07-19T11:45:51.918513 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
+E, [2017-07-19T11:45:51.918536 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
+E, [2017-07-19T11:45:51.918559 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:334:in `invoke_task'
+E, [2017-07-19T11:45:51.918583 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/thor-0.19.1/lib/thor.rb:359:in `dispatch'
+E, [2017-07-19T11:45:51.918606 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
+E, [2017-07-19T11:45:51.918628 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/bin/kitchen:13:in `block in <top (required)>'
+E, [2017-07-19T11:45:51.918651 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/lib/kitchen/errors.rb:171:in `with_friendly_errors'
+E, [2017-07-19T11:45:51.918674 #15624] ERROR -- Kitchen: /usr/local/share/gems/gems/test-kitchen-1.16.0/bin/kitchen:13:in `<top (required)>'
+E, [2017-07-19T11:45:51.918709 #15624] ERROR -- Kitchen: /usr/local/bin/kitchen:23:in `load'
+E, [2017-07-19T11:45:51.918801 #15624] ERROR -- Kitchen: /usr/local/bin/kitchen:23:in `<main>'
+E, [2017-07-19T11:45:51.918825 #15624] ERROR -- Kitchen: ----End Backtrace-----

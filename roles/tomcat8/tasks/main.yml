@@ -1,0 +1,97 @@
+---
+- name: Download tomcat
+  get_url: url=http://archive.apache.org/dist/tomcat/tomcat-8/v{{tomcat_version}}/bin/apache-tomcat-{{tomcat_version}}.tar.gz
+           dest=/tmp/apache-tomcat-{{tomcat_version}}.tar.gz 
+
+- name: Extract tomcat
+  unarchive:
+    src: "/tmp/apache-tomcat-{{tomcat_version}}.tar.gz"
+    dest: "{{tomcat_dir}}"
+    copy: no
+    creates: "{{tomcat_dir}}/apache-tomcat-{{tomcat_version}}" 
+   
+- name: Remove docs apps
+  file: path={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}}/webapps/docs state=absent
+
+- name: Remove ROOT apps
+  file: path={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}}/webapps/ROOT state=absent 
+
+- name: Remove host-manager apps
+  file: path={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}}/webapps/host-manager state=absent
+
+- name: Remove manager apps
+  file: path={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}}/webapps/manager state=absent
+
+- name: Remove examples apps
+  file: path={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}}/webapps/examples state=absent
+
+- name: Remove logging.properties
+  file: path={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}}/conf/logging.properties state=absent
+
+- name: Remove webapps directory
+  file: path={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}}/webapps state=absent
+
+- name: Remove logs directory
+  file: path={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}}/logs state=absent
+
+- name: Add tomcat configuration files - templates
+  template: src=tomcat/conf/{{item}} dest={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}}/conf/{{item}}
+  with_items:
+    - server.xml
+    - context.xml
+    - web.xml
+
+- name: Remove home directory symlink
+  file: path={{ tomcat_dir }}/tomcat state=absent
+
+- name: Create home directory symlink (Temporary for useradd)
+  file: src={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}} path={{ tomcat_dir }}/tomcat state=link
+
+- name: Create tomcat group
+  group: name=tomcat
+
+- name: Create tomcat user
+  user: name=tomcat group=tomcat home={{ tomcat_dir }}/tomcat
+
+- name: Remove home directory symlink (again)
+  file: path={{ tomcat_dir }}/tomcat state=absent
+
+- name: Change tomcat directory permissions
+  file: path={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}} owner=tomcat group=tomcat state=directory recurse=yes
+
+- name: Recreate home directory symlink
+  file: src={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}} owner=tomcat group=tomcat path={{ tomcat_dir }}/tomcat state=link
+
+- name: Create shared directory
+  file: path={{ tomcat_dir }}/shared state=directory owner=tomcat group=tomcat mode=0775
+    
+- name: Create webapps directory
+  file: path={{ tomcat_dir }}/shared/webapps state=directory owner=tomcat group=tomcat mode=0775  
+
+- name: Creates directory
+  file: path={{ tomcat_dir }}/shared/webapps/ROOT state=directory owner=tomcat group=tomcat mode=0775
+
+- name: Add tomcat sample unit file
+  copy: src=sample/index.html dest={{ tomcat_dir }}/shared/webapps/ROOT
+       
+
+- name: Create logs directory
+  file: path={{ tomcat_dir }}/shared/logs state=directory owner=tomcat group=tomcat mode=0775
+
+- name: Create webapps directory symlink 
+  file: src={{ tomcat_dir }}/shared/webapps owner=root group=tomcat path={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}}/webapps state=link
+
+- name: Create logs directory symlink 
+  file: src={{ tomcat_dir }}/shared/logs owner=root group=tomcat path={{ tomcat_dir }}/apache-tomcat-{{tomcat_version}}/logs state=link
+
+- name: Add tomcat systemd unit file
+  copy: src=systemd/tomcat.service dest=/usr/lib/systemd/system/tomcat.service owner=root group=root
+
+- name: systemd daemon-reload
+  shell: systemctl daemon-reload
+
+- name: Start tomcat
+  service: name=tomcat state=restarted enabled=yes
+
+- name: Wait for tomcat started
+  wait_for: port={{http_port}}

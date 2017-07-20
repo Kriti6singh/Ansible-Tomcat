@@ -1,0 +1,3 @@
+- name: "{{ time }} tracking"
+  debug: 
+      msg: "Time: {{lookup('pipe', 'date \"+%H:%M:%S\"')}}'"

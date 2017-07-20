@@ -1,0 +1,6 @@
+I, [2017-07-20T14:23:59.922064 #29150]  INFO -- default-centos-7: -----> Destroying <default-centos-7>...
+I, [2017-07-20T14:23:59.983382 #29150]  INFO -- default-centos-7: UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+I, [2017-07-20T14:23:59.983480 #29150]  INFO -- default-centos-7: root                28861               28845               0                   12:22               ?                   00:00:00            /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid
+I, [2017-07-20T14:24:00.123660 #29150]  INFO -- default-centos-7: 07a094db9f78e615c1108c3f90c97f7dd4cef3955334cc768ad8f21043062036
+I, [2017-07-20T14:24:00.161248 #29150]  INFO -- default-centos-7: 07a094db9f78e615c1108c3f90c97f7dd4cef3955334cc768ad8f21043062036
+I, [2017-07-20T14:24:00.174887 #29150]  INFO -- default-centos-7: Finished destroying <default-centos-7> (0m0.25s).

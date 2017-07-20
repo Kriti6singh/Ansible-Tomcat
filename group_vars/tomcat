@@ -1,0 +1,17 @@
+---
+tomcat_version: 8.5.14
+
+http_port: 8080
+ajp_port: 8009
+
+
+min_heap_size: 512M
+max_heap_size: 512M
+
+# File-system creation
+
+lvname: lv_{{app_name}}
+tomcat_dir: /opt/tomcat
+lvsize: 1024
+app_name: tomcat
+mount_point: /opt/{{app_name}}

@@ -1,0 +1,34 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+
+provisioner:
+  name: ansible_playbook
+  hosts: test-kitchen
+  ansible_verbose: false
+  ansible_verbosity: 2
+  roles_path: "../roles"
+
+platforms:
+  - name: centos-7.2
+    driver_config:
+      provision_command: 
+        - yum install epel-release -y
+        - yum makecache fast
+        - yum -y install ansible libselinux-python git
+        - yum install -y curl tree git yum-utils bind-utils jq openssh-clients rsync python-setuptools python-pip pyYAML python-jinja2 python-httplib2 unzip
+        - pip install --upgrade pip
+        - pip install ansible marathon pexpect dnspython pyvmomi pysphere bigsuds jsonschema requests netaddr dnspython boto virtualenv
+        - yum install -y ruby
+      image: ansible/centos7-ansible:stable
+      platform: centos
+
+
+suites:
+  - name: default
+    verifier:
+      patterns:
+        - roles/fs/test/integration/default/serverspec/default_spec.rb
+      bundler_path: '/usr/local/bin'
+      rspec_path: '/usr/local/bin'

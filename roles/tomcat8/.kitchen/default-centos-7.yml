@@ -1,0 +1,9 @@
+---
+username: kitchen
+ssh_key: /tmp/devops-journey/Ansible-Tomcat/roles/tomcat8/.kitchen/docker_id_rsa
+image_id: 090f00b2068b
+container_id: e10df1f66349dd59feecb189ef558c78a4c5d16460423063e7449bb0724b474a
+hostname: localhost
+port: 32772
+last_action: create
+last_error: Errno::ENOENT
